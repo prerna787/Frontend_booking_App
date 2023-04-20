@@ -18,7 +18,7 @@
 //         emit(SearchLoading());
 //         await Future.delayed(const Duration(seconds: 3), () async {
 //           data = await userRepo.fetchDetails();
-//           emit(HomepageLoaded(data));
+//           emit(SearchLoaded(data));
 //         });
 //       }
 //     });

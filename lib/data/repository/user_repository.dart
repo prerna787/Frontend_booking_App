@@ -20,9 +20,6 @@ class UserRepository {
           'Accept': 'application/json',
           //'Authorization': 'Bearer$token'// Specify content-type as JSON to prevent empty response body
         },
-
-
-
       );
       debugPrint('Request Done${response.statusCode == 200}');
       print('Token : ${token}');

@@ -3,7 +3,7 @@ import 'dart:convert';
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:booking_app/network/local_storage.dart';
+import 'package:booking_app/data/local_storage.dart';
 
 import 'package:booking_app/data/repository/user_repository.dart';
 part 'auth_event.dart';
@@ -11,6 +11,7 @@ part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final UserRepository userRepository;
+  late String token ='';
 
   AuthBloc(
     this.userRepository,
