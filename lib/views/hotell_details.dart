@@ -62,14 +62,20 @@ class HotelDetails extends StatelessWidget {
                 style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
 
               HeightSpacer(myHeight: 10),
-              Center(child: ElevatedButton(onPressed: ()async{
-
+              Center(child: ElevatedButton(child: Text('Click to Book Hotel'),
+                onPressed: ()async{
 
                 String? username = await CacheNetwork.getCacheData(key: 'username')  ;
+
                 BlocProvider.of<BookingBloc>(context).add(
                     SubmitForm(hotelId: '${hotelModel.id}',name: '${hotelModel.name}',userName:username! ));
+
+
               },
-                  child: Text('Click to Book Hotel'))
+
+
+              )
+
               )
 
             ],
