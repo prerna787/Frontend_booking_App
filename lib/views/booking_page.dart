@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../presentation/components/loader.dart';
 import '../presentation/components/spacers.dart';
+import 'dashboard_screen.dart';
 
 class BookingScreen extends StatelessWidget {
 
@@ -22,7 +23,19 @@ class BookingScreen extends StatelessWidget {
     ]
         ),
 
-   body: Center(child: Text('on My Bookings'),)
+   body: Center(child: AlertDialog(
+     title: Text('Booking Status'),           // To display the title it is optional
+     content: Text('Successful !!!'),   // Message which will be pop up on the screen
+     // Action widget which will provide the user to acknowledge the choice
+     actions: [
+       IconButton(onPressed: (){
+         Navigator.of(context).push(MaterialPageRoute(
+             builder: ((context) => DashboardScreen())));
+
+       }, icon: Icon(Icons.home),alignment: Alignment.center,)
+
+     ],
+   ),)
 
     );}
 }

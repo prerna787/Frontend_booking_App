@@ -14,10 +14,12 @@ class Result extends StatelessWidget {
 
     return  Scaffold(
           appBar: AppBar(title: Text('Hotel List'),
-            actions: [IconButton(onPressed: (){Navigator.of(context)
+            actions: [IconButton(onPressed: (){
+              Navigator.of(context)
               .pushNamed('/');
           }, icon: Icon(Icons.logout))],),
-      body: Center(
+      body:
+      Center(
           child:  ListView.builder(
             itemCount: hotelResponse.length,
             itemBuilder: ((context, index) {
@@ -58,15 +60,7 @@ class Result extends StatelessWidget {
 
                             ),
                           ),
-                            Column(
-                              children: [
-                                IconButton(onPressed: (){}, icon: Icon(Icons.favorite)
 
-                            )
-                          ],
-
-
-                        ),
                       ]
                           )
 

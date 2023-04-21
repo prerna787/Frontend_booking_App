@@ -24,7 +24,7 @@ class HotelDetails extends StatelessWidget {
         listener: (context, state) {
           if (state is FormLoaded){
             Navigator.of(context)
-                .pushNamed('/book');
+                .pushNamed('/myBooking');
           }
         },
         builder: (context, state) {

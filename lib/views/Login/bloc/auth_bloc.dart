@@ -20,22 +20,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       if (event is Login) {
         if (event.userName.isEmpty || event.password.isEmpty) {
           emit(AuthError());
-        } else  {
+        } else {
           emit(AuthLoading());
+          try {
+            var userResponse =
+            await userRepository.loginUser(event.userName, event.password);
+            debugPrint('Success ${userResponse.username}');
+            // TODO : adding token after reponse is successful "Secure Storage"
+            // save cache
 
-          var userResponse =
-              await userRepository.loginUser(event.userName, event.password);
-          debugPrint('Success ${userResponse.username}');
-          // TODO : adding token after reponse is successful "Secure Storage"
-          // save cache
-
-              await CacheNetwork.insertToCache(key: 'token',value:userResponse.token!);
-         debugPrint(await CacheNetwork.getCacheData(key: 'token')) ;
-          await CacheNetwork.insertToCache(key: 'username',value:userResponse.username!);
-          debugPrint(await CacheNetwork.getCacheData(key: 'username')) ;
-          emit(AuthLoaded(userResponse.username ?? ''));
+            await CacheNetwork.insertToCache(
+                key: 'token', value: userResponse.token!);
+            debugPrint(await CacheNetwork.getCacheData(key: 'token'));
+            await CacheNetwork.insertToCache(
+                key: 'username', value: userResponse.username!);
+            debugPrint(await CacheNetwork.getCacheData(key: 'username'));
+            emit(AuthLoaded(userResponse.username ?? ''));
+          }catch(e){
+            emit(AuthError()) ;
+            debugPrint('hereis s an exception ${e.toString()}');
+          }
         }
-
 
       }else {
         debugPrint('failed to login');

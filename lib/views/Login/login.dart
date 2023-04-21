@@ -11,6 +11,8 @@ import 'package:booking_app/presentation/components/image_builder.dart';
 import 'package:booking_app/presentation/components/loader.dart';
 import 'package:booking_app/presentation/components/spacers.dart';
 
+import '../dashboard_screen.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -57,8 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
             buildErrorLayout();
           } else if (state is AuthLoaded) {
             clearTextData();
-            Navigator.of(context)
-                .pushNamed('/dashboard', arguments: state.username);
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: ((context) => DashboardScreen())));
+
           }
         },
         builder: (context, state) {
@@ -110,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
   ScaffoldFeatureController buildErrorLayout() =>
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Please enter username/password!'),
+          content: Text('Invalid Credential!'),
         ),
       );
 

@@ -32,7 +32,7 @@ class RouteGenerator {
           ),
         );
 
-      case '/dashboard':
+      case '/searchHotel':
 
           return MaterialPageRoute(
             builder: (_) => BlocProvider<DashboardBloc>.value(
@@ -41,7 +41,8 @@ class RouteGenerator {
             ),
           );
 
-      case '/book':
+
+      case '/myBooking':
         return MaterialPageRoute(
           builder: (_) => BlocProvider<BookingBloc>.value(
             value: _bookingBloc,
@@ -64,6 +65,7 @@ class RouteGenerator {
             child: Result(hotelResponse: args as List<HotelModel>),
           ),
         );
+
 
 
       default:
