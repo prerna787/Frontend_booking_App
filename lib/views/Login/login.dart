@@ -59,8 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
             buildErrorLayout();
           } else if (state is AuthLoaded) {
             clearTextData();
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: ((context) => DashboardScreen())));
+            Navigator.of(context).pushNamed('/dashboardScreen');
 
           }
         },

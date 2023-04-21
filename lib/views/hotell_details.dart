@@ -23,8 +23,23 @@ class HotelDetails extends StatelessWidget {
       body: BlocConsumer<BookingBloc, BookingState>(
         listener: (context, state) {
           if (state is FormLoaded){
-            Navigator.of(context)
-                .pushNamed('/myBooking');
+            showDialog(context: context, builder: (BuildContext context){
+              return AlertDialog(
+                title: Text("Success"),
+                titleTextStyle:
+                TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,fontSize: 20),
+                actionsOverflowButtonSpacing: 20,
+                actions: [
+
+                 IconButton(onPressed: (){ Navigator.of(context)
+                     .pushNamed('/dashboardScreen');}, icon: Icon(Icons.home),alignment: Alignment.center,),
+                ],
+                content: Text("Booking Successful"),
+              );
+
+            });
           }
         },
         builder: (context, state) {
@@ -64,6 +79,7 @@ class HotelDetails extends StatelessWidget {
               HeightSpacer(myHeight: 10),
               Center(child: ElevatedButton(child: Text('Click to Book Hotel'),
                 onPressed: ()async{
+
 
                 String? username = await CacheNetwork.getCacheData(key: 'username')  ;
 

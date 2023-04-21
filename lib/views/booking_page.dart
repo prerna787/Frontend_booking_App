@@ -16,7 +16,7 @@ class BookingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        appBar: AppBar(title: const Text(' Book Hotels Here!'),
+        appBar: AppBar(title: const Text(' Booking Status!'),
          actions: [IconButton(onPressed: (){Navigator.of(context)
          .pushNamed('/');
           }, icon: const Icon(Icons.logout))

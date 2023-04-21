@@ -23,7 +23,7 @@ class Dashboard extends StatelessWidget {
         listener: (context, state) {
          if (state is SearchLoaded){
              Navigator.of(context)
-                 .pushNamed('/search', arguments: state.hotelResponse);
+                 .pushNamed('/hotelList', arguments: state.hotelResponse);
              };
         },
         builder: (context, state) {

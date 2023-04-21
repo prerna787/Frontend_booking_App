@@ -3,6 +3,7 @@ import 'package:booking_app/data/repository/user_repository.dart';
 import 'package:booking_app/views/Booking/bloc/booking_bloc.dart';
 import 'package:booking_app/views/booking_history.dart';
 import 'package:booking_app/views/booking_page.dart';
+import 'package:booking_app/views/dashboard_screen.dart';
 import 'package:booking_app/views/search_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,6 +33,11 @@ class RouteGenerator {
           ),
         );
 
+      case '/dashboardScreen':
+        return MaterialPageRoute(
+          builder: (_) =>DashboardScreen(),
+        );
+
       case '/searchHotel':
 
           return MaterialPageRoute(
@@ -41,14 +47,14 @@ class RouteGenerator {
             ),
           );
 
-
-      case '/myBooking':
+      case '/hotelList':
         return MaterialPageRoute(
-          builder: (_) => BlocProvider<BookingBloc>.value(
-            value: _bookingBloc,
-            child:  BookingScreen(),
+          builder: (_) => BlocProvider<DashboardBloc>.value(
+            value: _dashboardBloc,
+            child: Result(hotelResponse: args as List<HotelModel>),
           ),
         );
+
       case '/details':
         return MaterialPageRoute(
           builder: (_) => BlocProvider<BookingBloc>.value(
@@ -58,19 +64,26 @@ class RouteGenerator {
         );
 
 
-      case '/search':
+      case '/myBooking':
         return MaterialPageRoute(
-          builder: (_) => BlocProvider<DashboardBloc>.value(
-            value: _dashboardBloc,
-            child: Result(hotelResponse: args as List<HotelModel>),
+          builder: (_) => BlocProvider<BookingBloc>.value(
+            value: _bookingBloc,
+            child:  BookingScreen(),
           ),
         );
+
+
+
+
+
+
 
 
 
       default:
         return _errorRoute();
     }
+
   }
 
   static Route<dynamic> _errorRoute() {
