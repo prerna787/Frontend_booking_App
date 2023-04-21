@@ -31,15 +31,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
               await CacheNetwork.insertToCache(key: 'token',value:userResponse.token!);
          debugPrint(await CacheNetwork.getCacheData(key: 'token')) ;
-
+          await CacheNetwork.insertToCache(key: 'username',value:userResponse.username!);
+          debugPrint(await CacheNetwork.getCacheData(key: 'username')) ;
           emit(AuthLoaded(userResponse.username ?? ''));
         }
 
-        // emit(AuthLoading());
-        // await Future.delayed(const Duration(seconds: 3), () {
-        //   emit(AuthLoaded(event.userName));
 
-        // });
       }else {
         debugPrint('failed to login');
         emit(AuthError()) ;

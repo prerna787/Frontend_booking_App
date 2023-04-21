@@ -10,7 +10,9 @@ void main() async{
   await CacheNetwork.cacheInitialization();
   await CacheNetwork.deleteCacheItem(key: 'token');
   String? token = await CacheNetwork.getCacheData(key: 'token')  ;
+  String? username = await CacheNetwork.getCacheData(key: 'username')  ;
   debugPrint("token is : $token");
+  debugPrint("token is : $username");
   runApp(MyApp(
     //Todo pass boolean that tell about token presence
 
@@ -18,6 +20,7 @@ void main() async{
 
   ));
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key, required this.isTokenPresent}) : super(key: key);

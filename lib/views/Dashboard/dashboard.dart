@@ -1,7 +1,7 @@
 import 'package:booking_app/presentation/components/loader.dart';
 import 'package:booking_app/presentation/components/spacers.dart';
 import 'package:booking_app/views/Dashboard/bloc/dashboard_bloc.dart';
-import 'package:booking_app/views/SearchPage/search_result.dart';
+import 'package:booking_app/views/search_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,12 +15,13 @@ class Dashboard extends StatelessWidget {
         title:Text(
          'Search Hotels here!',
         ),
+          actions: [IconButton(onPressed: (){Navigator.of(context)
+              .pushNamed('/');
+          }, icon: Icon(Icons.logout))]
       ),
       body: BlocConsumer<DashboardBloc, DashboardState>(
         listener: (context, state) {
-          // if (state is DashboardNav) {
-          //   Navigator.pop(context);
-           if (state is SearchLoaded){
+         if (state is SearchLoaded){
              Navigator.of(context)
                  .pushNamed('/search', arguments: state.hotelResponse);
              };

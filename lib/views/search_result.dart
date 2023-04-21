@@ -1,11 +1,6 @@
-
-
 import 'package:booking_app/data/model/hotel_model.dart';
-import 'package:booking_app/views/Dashboard/bloc/dashboard_bloc.dart';
-import 'package:booking_app/views/SearchPage/hotell_details.dart';
+import 'package:booking_app/views/hotell_details.dart';
 import 'package:flutter/material.dart';
-
-
 
 class Result extends StatelessWidget {
 
@@ -18,7 +13,10 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {//${hotelResponse[index].id}'
 
     return  Scaffold(
-          appBar: AppBar(title: Text('Hotel List'),),
+          appBar: AppBar(title: Text('Hotel List'),
+            actions: [IconButton(onPressed: (){Navigator.of(context)
+              .pushNamed('/');
+          }, icon: Icon(Icons.logout))],),
       body: Center(
           child:  ListView.builder(
             itemCount: hotelResponse.length,
@@ -26,7 +24,6 @@ class Result extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-
                   color: Color.fromARGB(255, 47, 222, 187),
                   child: SingleChildScrollView(
                       child: Padding( padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
@@ -34,8 +31,7 @@ class Result extends StatelessWidget {
                         Row(
                           children: [InkWell(
                             onTap:(){
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: ((context) => HotelDetails(index: index, hotelModel: hotelResponse[index]  ))));
+                              Navigator.of(context).pushNamed('/details',arguments: hotelResponse[index]);
                             },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

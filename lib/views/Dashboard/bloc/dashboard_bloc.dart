@@ -29,7 +29,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
          List<HotelModel> hotels = [];
 
             String? token = await CacheNetwork.getCacheData(key: 'token')  ;
-            debugPrint(' taking token: ${token}');
+            debugPrint(' taking token: $token');
 
             Response response = await get(
                 Uri.parse("http://10.0.2.2:9000/hotel/search?city=${event.city}"),
