@@ -67,7 +67,7 @@ class HotelDetails extends StatelessWidget {
 
                 String? username = await CacheNetwork.getCacheData(key: 'username')  ;
                 BlocProvider.of<BookingBloc>(context).add(
-                    SubmitForm('${hotelModel.id}','${hotelModel.name}',username! ));
+                    SubmitForm(hotelId: '${hotelModel.id}',name: '${hotelModel.name}',userName:username! ));
               },
                   child: Text('Click to Book Hotel'))
               )

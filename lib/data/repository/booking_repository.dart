@@ -20,10 +20,10 @@ class BookingRepository{
         Uri.parse(bookingUrl),
         body: json.encode({'username': username, 'name': name,'hotelId': hotelId}),
         headers: {
-          "content-type":
-          "application/json" ,
-          'Accept': 'application/json',
-          'Authorization': 'Bearer $token!',
+          "content-type" : "application/json",
+          "accept" : "application/json",
+
+          'Authorization': 'Bearer $token',
            },
       );
       debugPrint('Request Done${response.statusCode == 200}');

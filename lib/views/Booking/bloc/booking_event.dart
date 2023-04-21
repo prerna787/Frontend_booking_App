@@ -8,6 +8,6 @@ final String name;
 final String hotelId;
 
 
-SubmitForm(this.userName, this.hotelId, this.name);
+SubmitForm({required this.userName, required this.hotelId,required this.name});
 }
 
