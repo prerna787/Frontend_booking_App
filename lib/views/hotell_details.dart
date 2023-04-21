@@ -15,10 +15,7 @@ class HotelDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Hotel Details '),
-          actions: [IconButton(onPressed: (){Navigator.of(context)
-        .pushNamed('/');
-      },
-          icon: Icon(Icons.logout))]),
+      ),
 
       body: BlocConsumer<BookingBloc, BookingState>(
         listener: (context, state) {

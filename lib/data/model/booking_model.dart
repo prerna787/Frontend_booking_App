@@ -21,11 +21,5 @@ class BookingModel {
     hotelId = data['hotelId'];
   }
 
-  // // To Map
-  // Map<String, dynamic> toMap() {
-  //   return {
-  //     'username': username,
-  //     'name': name,
-  //     'token': hotelId,
-  //   };
+
   }

@@ -46,16 +46,7 @@ class HotelModel {
   double? get pricePerNight => _pricePerNight;
   set pricePerNight(double? pricePerNight) => _pricePerNight = pricePerNight;
 
-  // HotelModel.fromJson({required Map<String, dynamic> data}) {
-  //   // Refactoring Map | Json
-  //   _id = data['id'];
-  //   _name = data['name'];
-  //   _checkIn = data['checkIn'];
-  //   _checkOut = data['checkOut'];
-  //   _city = data['city'];
-  //   _pricePerNight = data['pricePerNight'];
-  // }
-  HotelModel.fromJson(Map<String, dynamic> json ) {
+   HotelModel.fromJson(Map<String, dynamic> json ) {
     _id = json['id'];
     _name = json['name'];
     _checkIn = json['checkIn'];
@@ -63,18 +54,6 @@ class HotelModel {
     _city = json['city'];
     _pricePerNight = json['pricePerNight'];
   }
-
-  // Map<String, dynamic> toMap() {
-  //   return {
-  //    'id':_id,
-  //     'name':_name,
-  //     'checkIn':_checkIn,
-  //     'checkOut':_checkOut,
-  //     'city':_city,
-  //     'pricePerNight':_pricePerNight,
-  //
-  //   };
-  // }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

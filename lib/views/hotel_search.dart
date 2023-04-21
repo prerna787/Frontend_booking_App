@@ -15,9 +15,6 @@ class Dashboard extends StatelessWidget {
         title:Text(
          'Search Hotels here!',
         ),
-          actions: [IconButton(onPressed: (){Navigator.of(context)
-              .pushNamed('/');
-          }, icon: Icon(Icons.logout))]
       ),
       body: BlocConsumer<DashboardBloc, DashboardState>(
         listener: (context, state) {

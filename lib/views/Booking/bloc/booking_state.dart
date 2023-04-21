@@ -8,8 +8,6 @@ class FormLoading extends BookingState {}
 class FormLoaded extends BookingState {
   final String username;
   FormLoaded(this.username);
-
-
 }
 class FormFailure extends BookingState {}
 class EmptyFields extends BookingState {}

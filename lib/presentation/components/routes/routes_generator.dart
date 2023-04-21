@@ -1,8 +1,6 @@
 import 'package:booking_app/data/repository/booking_repository.dart';
 import 'package:booking_app/data/repository/user_repository.dart';
 import 'package:booking_app/views/Booking/bloc/booking_bloc.dart';
-import 'package:booking_app/views/booking_history.dart';
-import 'package:booking_app/views/booking_page.dart';
 import 'package:booking_app/views/dashboard_screen.dart';
 import 'package:booking_app/views/search_result.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +11,7 @@ import 'package:booking_app/views/Login/bloc/auth_bloc.dart';
 import 'package:booking_app/views/Login/login.dart';
 
 import '../../../data/model/hotel_model.dart';
-import '../../../views/Dashboard/dashboard.dart';
+import '../../../views/hotel_search.dart';
 import '../../../views/hotell_details.dart';
 
 class RouteGenerator {
@@ -62,23 +60,6 @@ class RouteGenerator {
             child:  HotelDetails(hotelModel:args as HotelModel),
           ),
         );
-
-
-      case '/myBooking':
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider<BookingBloc>.value(
-            value: _bookingBloc,
-            child:  BookingScreen(),
-          ),
-        );
-
-
-
-
-
-
-
-
 
       default:
         return _errorRoute();

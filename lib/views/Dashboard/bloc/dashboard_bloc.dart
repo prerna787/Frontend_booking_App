@@ -1,12 +1,10 @@
 import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:booking_app/data/model/hotel_model.dart';
 import 'package:booking_app/data/local_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
-
 part 'dashboard_event.dart';
 part 'dashboard_state.dart';
 

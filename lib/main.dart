@@ -8,7 +8,7 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
 
   await CacheNetwork.cacheInitialization();
-  await CacheNetwork.deleteCacheItem(key: 'token');
+  //await CacheNetwork.deleteCacheItem(key: 'token');
   String? token = await CacheNetwork.getCacheData(key: 'token')  ;
   String? username = await CacheNetwork.getCacheData(key: 'username')  ;
   debugPrint("token is : $token");
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
 
       // home: isTokenPresent != null ? const MyHomePage(title: 'Booking app') : Dashboard());
       initialRoute:
-      isTokenPresent  ?  '/dashboard' : '/',// todo check based on token
+      isTokenPresent  ?  '/dashboardScreen' : '/',// todo check based on token
 
        onGenerateRoute: RouteGenerator().generateRoute,);
 

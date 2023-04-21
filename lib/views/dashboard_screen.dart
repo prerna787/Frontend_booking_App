@@ -5,7 +5,17 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Travel Options'),
+        leading:IconButton(onPressed: (){
+        }, icon: Icon(Icons.my_library_add_outlined)),
+        title: const Text('Travel Options',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
+          actions: [
+            IconButton(onPressed: (){
+            Navigator.pushReplacementNamed(context, "/");
+          }, icon: Icon(Icons.logout)),
+            ],
+        toolbarHeight: 100, // default is 56
+
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: Column(

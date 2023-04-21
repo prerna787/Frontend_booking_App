@@ -22,7 +22,6 @@ class BookingRepository{
         headers: {
           "content-type" : "application/json",
           "accept" : "application/json",
-
           'Authorization': 'Bearer $token',
            },
       );

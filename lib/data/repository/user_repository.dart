@@ -14,11 +14,11 @@ class UserRepository {
         Uri.parse(userUrl),
         body: json.encode({'username': username, 'password': password}),
         headers: {
-          // whatever headers you need(I add auth)
+
           "content-type":
               "application/json" ,
           'Accept': 'application/json',
-          //'Authorization': 'Bearer$token'// Specify content-type as JSON to prevent empty response body
+          //'Authorization': 'Bearer$token'
         },
       );
       debugPrint('Request Done${response.statusCode == 200}');

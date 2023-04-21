@@ -14,10 +14,7 @@ class Result extends StatelessWidget {
 
     return  Scaffold(
           appBar: AppBar(title: Text('Hotel List'),
-            actions: [IconButton(onPressed: (){
-              Navigator.of(context)
-              .pushNamed('/');
-          }, icon: Icon(Icons.logout))],),
+           ),
       body:
       Center(
           child:  ListView.builder(
