@@ -6,6 +6,7 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading:IconButton(onPressed: (){
+          Navigator.of(context).pushNamed( '/myBookings');
         }, icon: Icon(Icons.my_library_add_outlined)),
         title: const Text('Travel Options',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
           actions: [

@@ -19,8 +19,7 @@ class Dashboard extends StatelessWidget {
       body: BlocConsumer<DashboardBloc, DashboardState>(
         listener: (context, state) {
          if (state is SearchLoaded){
-             Navigator.of(context)
-                 .pushNamed('/hotelList', arguments: state.hotelResponse);
+             Navigator.of(context).pushNamed('/list', arguments: state.hotelResponse);
              };
         },
         builder: (context, state) {

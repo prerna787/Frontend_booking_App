@@ -1,6 +1,8 @@
 import 'package:booking_app/data/repository/booking_repository.dart';
 import 'package:booking_app/data/repository/user_repository.dart';
 import 'package:booking_app/views/Booking/bloc/booking_bloc.dart';
+import 'package:booking_app/views/MyBookings/bloc/myBooking_bloc.dart';
+import 'package:booking_app/views/MyBookings/myBookingScreen.dart';
 import 'package:booking_app/views/dashboard_screen.dart';
 import 'package:booking_app/views/search_result.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,7 @@ import 'package:booking_app/views/Login/bloc/auth_bloc.dart';
 import 'package:booking_app/views/Login/login.dart';
 
 import '../../../data/model/hotel_model.dart';
+import '../../../views/MyBookings/bloc/bookingApi.dart';
 import '../../../views/hotel_search.dart';
 import '../../../views/hotell_details.dart';
 
@@ -18,7 +21,7 @@ class RouteGenerator {
   final AuthBloc _authBloc = AuthBloc(UserRepository());
   final DashboardBloc _dashboardBloc = DashboardBloc();
   final BookingBloc _bookingBloc=BookingBloc(BookingRepository());
-
+  final BookingsBloc _myBloc=BookingsBloc(bookingApi: BookingApi());
   Route<dynamic>? generateRoute(RouteSettings settings) {
     final args = settings.arguments;
 
@@ -45,7 +48,7 @@ class RouteGenerator {
             ),
           );
 
-      case '/hotelList':
+      case '/list':
         return MaterialPageRoute(
           builder: (_) => BlocProvider<DashboardBloc>.value(
             value: _dashboardBloc,
@@ -58,6 +61,14 @@ class RouteGenerator {
           builder: (_) => BlocProvider<BookingBloc>.value(
             value: _bookingBloc,
             child:  HotelDetails(hotelModel:args as HotelModel),
+          ),
+        );
+
+      case '/myBookings':
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider<BookingsBloc>.value(
+            value: _myBloc,
+            child:  const MyBookingsScreen(),
           ),
         );
 
